@@ -368,30 +368,30 @@ add_btn = tk.Button(
 add_btn.grid(row=0, column=0, padx=2, pady=2)
 
 
-#Update Button
-update_btn = tk.Button(
+#Edit Button
+edit_btn = tk.Button(
   btn_frame,
   bg="teal",
   foreground="white",
-  text="Update",
+  text="Edit",
   bd=2,
   font=("Arial", 13), width=15,
   command=select_record
 )
-update_btn.grid(row=0, column=1, padx=2, pady=2)
+edit_btn.grid(row=0, column=1, padx=2, pady=2)
 
 
-#Save Button
-save_btn = tk.Button(
+#Clear Button
+clear_btn = tk.Button(
   btn_frame,
   bg="teal",
   foreground="white",
-  text="Save",
+  text="Clear",
   bd=2,
   font=("Arial", 13), width=15,
   command=update_record
 )
-save_btn.grid(row=2, column=0, padx=2, pady=2)
+clear_btn.grid(row=2, column=0, padx=2, pady=2)
 
 #Delete Button
 delete_btn = tk.Button(
@@ -446,16 +446,16 @@ search_btn = tk.Button(
 )
 search_btn.place(x=10, y=75)
 
-refresh_btn = tk.Button(
+display_btn = tk.Button(
   search_frame,
   bg="teal",
   foreground="white",
-  text="Refresh",
+  text="Display",
   bd=2,
   font=("Arial", 13), width=15,
   command=refresh_record
 )
-refresh_btn.place(x=160, y=75)
+display_btn.place(x=160, y=75)
 
 
 win.mainloop()
