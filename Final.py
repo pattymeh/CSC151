@@ -216,15 +216,6 @@ student_table.pack(fill=tk.BOTH, expand=True)
 
 #==========================================Default Data========================================#
  
-
-# data=[
-#   ["2019-8953", "Bagul, Fatima L.", "3", "Female", "BS Statistics"],
-#   ["2019-0655", "Bendit, Rutchegen C.", "3", "Female", "BS Statistics"],
-#   ["2019-1453", "Oledan, Christine Jane B.", "3", "Female", "BS Statistics"],
-#   ["2019-1352", "Vidal, Vincent A.", "3", "Male", "BS Statistics"],
-#   ["2019-0001", "Mira-ato, Saimah M.", "3", "Female", "BS Accountancy"]
-# ]
-
 df = pd.read_csv('students.csv')
 # data = df.to_numpy()
 data = df
@@ -299,25 +290,28 @@ def search_record():
   search_value = search_ent.get()
   if(search_value):
     if(data.size > 0):
-      df = 1
+      df = -1
+      dataX = data.to_numpy()
       for idx, x in enumerate(data):
         for y in x:
           y = str(y)
           s_p = y.lower() #search phrase
           s_v = search_value.lower() #search value
           s_v = str(s_v)
-          if s_p.find(s_v) != 1:
+          print(s_v)
+          print(s_p)
+          if s_p.find(s_v) != -1:
             df = idx
-      if(df != 1):
+      if(df != -1):
         messagebox.showinfo('Found','Student found.')
       else:
         messagebox.showerror('Error','No such student.')
-      # print(df)
-      # print(data[df])
+      
+      print(data.iloc[[df]])
+      dlist = data.iloc[[df]]
       delete_all()
-      dlist = []
-      dlist.append(data[df])
       reloadTable(dlist,0)
+      
   else:
     messagebox.showinfo('Warning','Type in search box')
 
@@ -405,6 +399,29 @@ delete_btn = tk.Button(
 )
 delete_btn.grid(row=2, column=1, padx=2, pady=2)
 
+#Save Button
+save_btn = tk.Button(
+  btn_frame,
+  bg="teal",
+  foreground="white",
+  text="Save",
+  bd=2,
+  font=("Arial", 13), width=15,
+  command=update_record
+)
+save_btn.grid(row=3, column=0, padx=2, pady=2)
+
+#Exit Button
+exit_btn = tk.Button(
+  btn_frame,
+  bg="teal",
+  foreground="white",
+  text="Exit",
+  bd=2,
+  font=("Arial", 13), width=15,
+  command=quit
+)
+exit_btn.grid(row=3, column=1, padx=2, pady=2)
 
 #Search frame
 search_frame = tk.Frame(
