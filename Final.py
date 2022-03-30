@@ -292,7 +292,7 @@ def search_record():
     if(data.size > 0):
       df = -1
       dataX = data.to_numpy()
-      for idx, x in enumerate(data):
+      for idx, x in enumerate(dataX):
         for y in x:
           y = str(y)
           s_p = y.lower() #search phrase
