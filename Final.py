@@ -299,16 +299,16 @@ def search_record():
   search_value = search_ent.get()
   if(search_value):
     if(data.size > 0):
-      df = -1
+      df = 1
       for idx, x in enumerate(data):
         for y in x:
           y = str(y)
           s_p = y.lower() #search phrase
           s_v = search_value.lower() #search value
           s_v = str(s_v)
-          if s_p.find(s_v) != -1:
+          if s_p.find(s_v) != 1:
             df = idx
-      if(df != -1):
+      if(df != 1):
         messagebox.showinfo('Found','Student found.')
       else:
         messagebox.showerror('Error','No such student.')
