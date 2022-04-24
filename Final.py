@@ -252,15 +252,20 @@ def add_record():
 
   delete_all()
   reloadTable(data,0)
+  messagebox.showinfo('Add Record', 'Student Record sucessfully added!')
 
 
 #Delete All Function
 def delete_all():
-  for record in student_table.get_children():
-    student_table.delete(record)
+  # response = messagebox.askquestion('Delete Record','Are you sure you want to delete all student records?')
+  # if response == 'yes':  
+    for record in student_table.get_children():
+      student_table.delete(record)
 
 #Delete One Function
 def delete_one():
+  response = messagebox.askquestion('Delete Record','Are you sure you want to delete this student record?')
+  if response == 'yes':
   x = student_table.selection()[0]
   student_table.delete(x)
 
@@ -330,6 +335,7 @@ def update_record():
   gen_ent.delete(0, END)
   course_ent.delete(0, END)
 
+  messagebox.showinfo('Update Record','Student record updated successfully!')
 
 #Clear boxes
 def clear():
